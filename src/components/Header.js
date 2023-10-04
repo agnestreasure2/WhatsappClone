@@ -1,36 +1,30 @@
 import React, { useContext } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { AntDesign, Ionicons, Feather } from '@expo/vector-icons';
-import { CartContext } from '../components/CartContext';
+import { AntDesign, Ionicons, FontAwesome } from '@expo/vector-icons';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'; // Import FontAwesome5 from react-native-vector-icons
+import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
+
 
 const Header = () => {
   const navigation = useNavigation();
-  const { cartCount } = useContext(CartContext); // Retrieve cartCount from CartContext
-
-  const openGoogleMaps = () => {
-    const url = 'https://maps.google.com/';
-    Linking.openURL(url);
-  };
 
   return (
     <View style={styles.container}>
       <View style={styles.headerRow}>
-        <TouchableOpacity onPress={openGoogleMaps}>
-          <AntDesign name="enviromento" size={24} color="black" style={styles.icon} />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={openGoogleMaps}>
-          <Text style={styles.location}>Click to view location</Text>
-        </TouchableOpacity>
+      <TouchableOpacity>
+        <Text size={24} color="black" style={styles.edit}>Edit</Text>
+      </TouchableOpacity>
         <View style={styles.rightIcons}>
-          <Ionicons name="ios-notifications-outline" size={24} color="black" style={styles.icon1} />
+          <Ionicons name="ios-camera-outline" size={24} color="black" style={styles.icon1} />
           <TouchableOpacity onPress={() => navigation.navigate('MyCart')}>
-            <Feather name="shopping-cart" size={24} color="black" style={styles.icon} />
-            {cartCount > 0 && (
-              <View style={styles.cartCount}>
-                <Text style={styles.cartCountText}>{cartCount}</Text>
-              </View>
-            )}
+          {/* <FontAwesome5.Button
+              name="pencil-alt" size={24}  color="black" style={styles.icon} /> */}
+              <Image
+              source={require('../assets/icons/edit.png')}
+              size={24}  color="black" style={styles.icon}
+            />
+         
           </TouchableOpacity>
         </View>
       </View>
@@ -41,7 +35,7 @@ const Header = () => {
 const styles = StyleSheet.create({
   container: {
     padding: 20,
-    backgroundColor: '#ffffff',
+    // backgroundColor: '#ffffff',
     marginTop: 15,
   },
   headerRow: {
@@ -50,41 +44,29 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     right: 5,
   },
+  edit: {
+    marginTop: 9,
+    fontSize: 16,
+    color: '#0096FF',
+
+  },
   icon1: {
-    marginRight: 15,
+    marginRight: 30,
+    tintColor:  '#0096FF',
   },
   icon: {
     width: 24,
     height: 24,
     justifyContent: 'space-between',
+    tintColor:  '#0096FF',
   },
   rightIcons: {
     flexDirection: 'row',
     alignItems: 'center',
     marginRight: 8,
+   
   },
-  location: {
-    fontWeight: '400',
-    fontSize: 16,
-    marginRight: 70,
-    lineHeight: 24,
-  },
-  cartCount: {
-    position: 'absolute',
-    top: -8,
-    right: -8,
-    backgroundColor: 'red',
-    borderRadius: 10,
-    width: 20,
-    height: 20,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  cartCountText: {
-    color: 'white',
-    fontSize: 12,
-    fontWeight: 'bold',
-  },
+ 
 });
 
 export default Header;

@@ -12,7 +12,7 @@ import { Text,
             id: 1,
             // title: "Welcome to ChowNow...",
             text: "From Meta",
-            image: require("../assets/images/whatsapp-logo.png"),
+            image: require("../assets/icons/whatsapp.jpg"),
         },
        
     ];

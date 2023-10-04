@@ -1,75 +1,76 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Image, View } from "react-native";
-import Home from "../screens/Home";
-import Fav from "../screens/Fav";
-import Orders from "../screens/Orders";
-import Account from "../screens/Account";
-import Explore from "../screens/Explore";
+import { Image, Settings, View } from "react-native";
+
+import Chats from "../screens/Chats";
+import Updates from "../screens/Updates";
+import Calls from "../screens/Calls";
+import Communities from "../screens/Communities";
+import Next from "../screens/Next";
 
 const Tab = createBottomTabNavigator();
 
 const BottomTabs = () => {
   return (
     <Tab.Navigator
-      initialRouteName="Home"
-      screenOptions={{ headerShown: false, tabBarShowLabel: true, tabBarActiveTintColor: '#009688' }}
+      initialRouteName="Chats"
+      screenOptions={{ headerShown: false, tabBarShowLabel: true, tabBarActiveTintColor: '#0096FF' }}
     >
       <Tab.Screen
-        name="Home"
-        component={Home}
+        name="Updates"
+        component={Updates}
         options={{
           tabBarIcon: ({ color, size }) => (
             <Image
-              source={require('../assets/icons/Home.png')}
+              source={require('../assets/icons/updates.png')}
               style={{ tintColor: color, width: 19, height: 20 }}
             />
           ),
         }}
       />
-      {/* <Tab.Screen
-        name="Explore"
-        component={Explore}
+      <Tab.Screen
+        name="Calls"
+        component={Calls}
         options={{
           tabBarIcon: ({ color, size }) => (
             <Image
-              source={require('../assets/icons/search.png')}
+              source={require('../assets/icons/calls.png')}
               style={{ tintColor: color, width: size, height: size }}
             />
           ),
         }}
-      /> */}
+      />
       <Tab.Screen
-        name="Orders"
-        component={Orders}
+        name="Communities"
+        component={Communities}
         options={{
           tabBarIcon: ({ color, size }) => (
             <Image
-              source={require('../assets/icons/order.png')}
-              style={{ tintColor: color, width: 16.67, height: 18.41 }}
+              source={require('../assets/icons/community.png')}
+              style={{ tintColor: color, width: 22, height: 18.41 }}
             />
           ),
         }}
       />
       <Tab.Screen
-        name="Favorite"
-        component={Fav}
+        name="Chats"
+        component={Chats}
         options={{
           tabBarIcon: ({ color, size }) => (
             <Image
-              source={require('../assets/icons/favourite.png')}
-              style={{ tintColor: color, width: 19, height: 18 }}
+              source={require('../assets/icons/chats.png')}
+              style={{ tintColor: color, width: 22, height: 18 }}
             />
           ),
         }}
       />
       <Tab.Screen
-        name="Account"
-        component={Account}
+        name="Settings"
+        component={Next}
         options={{
           tabBarIcon: ({ color, size }) => (
             <Image
-              source={require('../assets/icons/account.png')}
+              source={require('../assets/icons/settings.png')}
               style={{ tintColor: color, width: 14.34, height: 18.41 }}
             />
           ),

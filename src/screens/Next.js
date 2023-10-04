@@ -1,12 +1,12 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-const Updates = () => {
+const Set = () => {
   return (
     <View>
-      <Text>Updates</Text>
+      <Text>Communities</Text>
     </View>
   )
 }
 
-export default Updates;
+export default Set;
